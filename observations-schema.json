@@ -1,0 +1,88 @@
+{
+  "fields": [
+    {
+    "name": "obs-id",
+    "type": "string",
+    "format": "default",
+    "title": "Observation ID",
+    "description": "Unique identifier for observation",
+    "constraints":{
+        "required": 'true',
+        "unique":'true',
+        }
+    },
+    {
+    "name": "poi-id",
+    "type": "string",
+    "format": "default",
+    "title": "Point of interest ID"
+    "constraints":{
+        "required": 'true',
+        }
+    },
+    {
+    "name": "equip-id",
+    "type": "string",
+    "format": "default",
+    "title": "Equipment ID"
+    },
+    {
+    "name": "equip-type",
+    "type": "string",
+    "format": "default",
+    "title": "Equipment Type",
+    "constraints":{
+        "required": 'true',
+        "enum":["hand","tube","loop-detector","radar","video detection","video replay","other","unknown"]
+        }
+    },
+    {
+    "name": "obs-date",
+    "type": "date",
+    "format": "default",
+    "title": "Observation date",
+    "constraints":{
+        "required": 'true',
+        }
+    },
+    {
+    "name": "time-start",
+    "type": "time",
+    "format": "default",
+    "title": "Observation start time",
+    "constraints":{
+        "required": 'true',
+        }
+    },
+    {
+    "name": "time-end",
+    "type": "time",
+    "format": "default",
+    "title": "Observation end time",
+    "constraints":{
+        "required": 'true',
+        }
+    },
+    {
+    "name": "obs-variable",
+    "type": "string",
+    "format": "default",
+    "title": "Observation variable",
+    "description": "i.e. volume, ridership, etc.",
+    "constraints":{
+        "required": 'true',
+        "enum":["volume","ridership","boardings","alightings","speed","travel-time"]
+        }
+    },
+    {
+    "name": "obs-value",
+    "type": "number",
+    "format": "default",
+    "title": "Observation value",
+    "description": "Value of the observation variable between start time and end time for observation date.",
+    "constraints":{
+        "required": 'true',
+        }
+    }
+  ]
+}

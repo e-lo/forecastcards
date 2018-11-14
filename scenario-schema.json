@@ -1,0 +1,80 @@
+{
+ "fields": [
+    {
+    "name": "forecast-id",
+    "type": "string",
+    "format": "default",
+    "title": "Forecast ID",
+    "description": "Unique identifier of the forecast",
+    "constraints":{
+        "required": 'true',
+        "unique": 'true',
+        }
+    },
+    {
+    "name": "scenario-id",
+    "type": "string",
+    "format": "default",
+    "title": "Scenario ID",
+    "description": "Unique identifier of the scenario.",
+    "constraints":{
+        "required": 'true',
+        }
+    },
+    {
+    "name": "scenario-date",
+    "type": "date",
+    "format": "default",
+    "title": "Scenario date",
+    "description": "Date for the scenario.",
+    "constraints":{
+        "required": 'true',
+        }
+    },
+    {
+    "name": "scenario-name",
+    "type": "string",
+    "format": "default",
+    "title": "Scenario name",
+    "description": "Name of the scenario.",
+    "constraints":{
+        "required": 'true',
+        }
+    },
+    {
+    "name": "forecast-system",
+    "type": "string",
+    "format": "default",
+    "title": "Forecast System",
+    "constraints":{
+        "required": 'true',
+        }
+    },
+    {
+    "name": "forecast-system-type",
+    "type": "string",
+    "format": "default",
+    "title": "Forecast System Type",
+    "constraints":{
+        "required": 'true',
+        "enum": ["trendline","pop-growth-rates","travel-model","professional-judgement","unknown","other"],
+        }
+    },
+    {
+    "name": "forecast-creation-date",
+    "type": "date",
+    "format": "default",
+    "title": "Forecast creation date",
+    },
+    {
+    "name": "forecaster-type",
+    "type": "string",
+    "format": "default",
+    "title": "Forecaster type",
+    "description": "Who created the forecast?",
+    "constraints":{
+        "enum": ["consultant","State DOT","MPO","Local","Other","Unknown"],
+        }
+    }
+  ]
+}

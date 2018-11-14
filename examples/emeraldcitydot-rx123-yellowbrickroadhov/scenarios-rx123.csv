@@ -1,0 +1,4 @@
+forecast-id,scenario-id,scenario-date,scenario-name,forecast-system, forecast-system-type, forecast-creation-date, forecaster-type
+f1,s1,opening year, 1940, the great OZ machine v1.2, growth-rates, 1937, MPO
+f2,s2,horizon year, 1960, the great OZ machine v1.2, growth-rates, 1937, consultant
+f3,s2,horizon year revisited, 1960, the great OZ machine v1.5, travel-model, 1940, consultant

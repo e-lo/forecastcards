@@ -1,0 +1,5 @@
+forecast-id, scenario-date, poi-id, start-time, end-time, forecast-variable, forecast-value
+f1, 1960, ybr-1-ib, 8:00AM, 9:00AM,volume, 456
+f1, 1960, ybr-1-ib, 9:00AM, 10:00AM,volume, 456
+f1, 1960, ybr-2-ib, 8:00AM, 9:00AM,volume, 500
+f1, 1960, ybr-2-ib, 9:00AM, 9:00AM,volume, 512

@@ -1,0 +1,76 @@
+{
+ "fields": [
+  {
+    "name": "forecast-id",
+    "type": "string",
+    "format": "default",
+    "title": "Forecast ID",
+    "description": "Unique identifier of forecast"
+    "constraints":{
+        "required": 'true',
+        "unique": 'true',
+        }
+  },
+  {
+    "name": "scenario-date",
+    "type": "date",
+    "format": "default",
+    "title": "Scenario date",
+    "description": "Date for the forecast",
+    "constraints":{
+        "required": 'true',
+        }
+  },
+  {
+    "name": "poi-id",
+    "type": "string",
+    "format": "default",
+    "title": "POI ID",
+    "description": "POI Identifier for the forecast",
+    "constraints":{
+        "required": 'true',
+        }
+  },
+  {
+    "name": "start-time",
+    "type": "time",
+    "format": "default",
+    "title": "Start time",
+    "description": "Start time for forecast variable",
+    "constraints":{
+        "required": 'true',
+        }
+  },
+  {
+    "name": "end-time",
+    "type": "time",
+    "format": "default",
+    "title": "End time",
+    "description": "End time for forecast variable",
+    "constraints":{
+        "required": 'true',
+        }
+  },
+  {
+    "name": "forecast-variable",
+    "type": "string",
+    "format": "default",
+    "title": "Forecast variable",
+    "description": "The variable that is being forecast, i.e. ridership, volume, boardings, speed",
+    "constraints":{
+        "required": 'true',
+        "enum":["volume","ridership","boardings","alightings","speed","travel-time"]
+        }
+  },
+  {
+    "name": "forecast-value",
+    "type": "number",
+    "format": "default",
+    "title": "Forecast value",
+    "description": "Numeric value of the forecast",
+    "constraints":{
+        "required": 'true',
+        }
+  }
+]
+}
