@@ -1,70 +1,68 @@
 {
-  "fields": [
-    {
-    "name": "project-id",
-    "type": "string",
-    "format": "default",
-    "title": "Project ID",
-    "description": "Unique Project Identifier"
-    "constraints":{
-        "required": 'true',
-        "unique": 'true'
-        }
-    },
-    {
-    "name": "agency",
-    "type": "string",
-    "format": "default",
-    "title": "Responsible Agency",
-    "description": "Agency responsible for project"
-    "constraints":{
-        "required": 'true',
-        }
-    },
-    {
-    "name": "description",
-    "type": "string",
-    "format": "default",
-    "title": "Project Description"
-    },
-    {
-    "name": "project-type",
-    "type": "string",
-    "format": "default",
-    "title": "Project Type",
-    "description": "Typology  of the project",
-    "constraints":{
-        "required": 'true',
-        "enum": ["hov","road-capacity-expansion","transit-priority","road-diet","bike-facility","new-roadway","other"]
-        }
-    },
-    {
-    "name": "date-open-planned",
-    "type": "year",
-    "format": "default",
-    "title": "Planned Opening Year",
-    "description": "Projected opening date of project",
-    "constraints":{
-        "required": 'true',
-        }
-    },
-    {
-    "name": "year-horizon",
-    "type": "year",
-    "format": "default",
-    "title": "Horizon Date",
-    "description": "Planning Horizon ",
-    "constraints":{
-        "required": 'true',
-        }
-    },
-    {
-    "name": "date-open-actual",
-    "type": "date",
-    "format": "default",
-    "title": "Actual opening Date",
-    "description": "Actual opening date of project",
-    },
-  ]
+	"fields": [{
+			"name": "project-id",
+			"type": "string",
+			"format": "default",
+			"title": "Project ID",
+			"description": "Unique Project Identifier",
+			"constraints": {
+				"required": true,
+				"unique": true
+			}
+		},
+		{
+			"name": "agency",
+			"type": "string",
+			"format": "default",
+			"title": "Responsible Agency",
+			"description": "Agency responsible for project",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "description",
+			"type": "string",
+			"format": "default",
+			"title": "Project Description"
+		},
+		{
+			"name": "project-type",
+			"type": "string",
+			"format": "default",
+			"title": "Project Type",
+			"description": "Typology  of the project",
+			"constraints": {
+				"required": true,
+				"enum": ["hov", "road-capacity-expansion", "transit-priority", "road-diet", "bike-facility", "new-roadway", "other"]
+			}
+		},
+		{
+			"name": "date-open-planned",
+			"type": "year",
+			"format": "default",
+			"title": "Planned Opening Year",
+			"description": "Projected opening date of project",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "year-horizon",
+			"type": "year",
+			"format": "default",
+			"title": "Horizon Date",
+			"description": "Planning Horizon ",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "date-open-actual",
+			"type": "date",
+			"format": "default",
+			"title": "Actual opening Date",
+			"description": "Actual opening date of project"
+		}
+	]
 }
-
