@@ -1,4 +1,4 @@
-poi_id, poi_short_name, facility_name, start, end, area_type, facility_type, functional_class, features, state, jurisdiction, poi_description
+poi_id,poi_short_name,facility_name,start,end,area_type,facility_type,functional_class,features,state,jurisdiction,poi_description
 ybr-1-ib, Yellow Brick Rd IB 1, Yellow Brick Rd, Munchkin Land, field, rural, road, Minor Arterial, [], OZ, Glinda, Yellow Brick Road Inbound segment from Munchkin Land to Scarecrow's Field
 ybr2-ib, Yellow Brick Rd IB 2, Yellow Brick Rd, field, forest, rural, road,Minor Arterial, [], OZ, Glinda, Yellow Brick Road Inbound segment from Scarecrow's Field to Tinwoodsman's and Lion's Forest.
 ybr3-ib, Yellow Brick Rd IB 3, Yellow Brick Rd, forest, poppies, rural, road,Minor Arterial, [], OZ, Glinda, Yellow Brick Road Inbound segment from the Forest to the deadly Poppy Field.
