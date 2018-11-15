@@ -13,6 +13,17 @@
 			}
 		},
 		{
+			"name": "project_id",
+			"type": "string",
+			"format": "default",
+			"title": "Project ID",
+			"description": "Unique identifier of the project.",
+			"constraints": {
+				"required": true,
+				"unique": true
+			}
+		},
+		{
 			"name": "scenario_id",
 			"type": "string",
 			"format": "default",
