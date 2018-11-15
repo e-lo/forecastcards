@@ -1,8 +1,8 @@
 {
     "missingValues": [""],
-    "primaryKey":["project-id"],
+    "primaryKey":["project_id"],
 	"fields": [{
-			"name": "project-id",
+			"name": "project id",
 			"type": "string",
 			"format": "default",
 			"title": "Project ID",
@@ -29,7 +29,7 @@
 			"title": "Project Description"
 		},
 		{
-			"name": "project-type",
+			"name": "project_type",
 			"type": "string",
 			"format": "default",
 			"title": "Project Type",
@@ -40,7 +40,7 @@
 			}
 		},
 		{
-			"name": "year-open-planned",
+			"name": "year_open_planned",
 			"type": "year",
 			"format": "default",
 			"title": "Planned Opening Year",
@@ -50,14 +50,14 @@
 			}
 		},
 		{
-			"name": "year-horizon",
+			"name": "year_horizon",
 			"type": "year",
 			"format": "default",
 			"title": "Horizon Date",
 			"description": "Planning Horizon"
 		},
 		{
-			"name": "date-open-actual",
+			"name": "date_open_actual",
 			"type": "date",
 			"format": "default",
 			"title": "Actual opening Date",

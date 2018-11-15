@@ -1,9 +1,9 @@
-obs-id, poi-id, equip-id, equip-type, obs-date, time-start, time-end, obs-variable, obs-value
-o1,ybr-1-ib,e1, tube, 1960-08-12, 8:00:00, 9:00:00,  volume,600 
-o2,ybr-1-ib,e1, tube, 1960-08-12, 9:00:00, 10:00:00, volume,600
-o3,ybr-2-ib,e1, tube, 1960-08-12, 8:00:00, 9:00:00,  volume,600
-o4,ybr-2-ib,e1, tube, 1960-08-12, 9:00:00, 10:00:00, volume,600
-o5,ybr-1-ib,e1, tube, 1960-08-12, 8:00:00, 9:00:00, hov2-volume,200
-o6,ybr-1-ib,e1, tube, 1960-08-12, 9:00:00, 10:00:00,hov2-volume,200
-o7,ybr-2-ib,e1, tube, 1960-08-12, 8:00:00, 9:00:00, hov2-volume,200
-o8,ybr-2-ib,e1, tube, 1960-08-12, 9:00:00, 10:00:00,hov2-volume,200
+obs_id,poi_id,forecast_id,equip_id,equip_type,obs_date,time_start,time_end,obs_variable,obs_value
+o1,ybr-1-ib,f1,e1,tube,1960-08-12,8:00:00,9:00:00,volume,600
+o2,ybr-1-ib,f1,e1,tube,1960-08-12,9:00:00,10:00:00,volume,600
+o3,ybr-2-ib,f1,e2,tube,1960-08-12,8:00:00,9:00:00,volume,600
+o4,ybr-2-ib,f1,e2,tube,1960-08-12,9:00:00,10:00:00,volume,600
+o5,ybr-1-ib,,e1,tube,1960-08-12,8:00:00,9:00:00,hov2-volume,200
+o6,ybr-1-ib,,e1,tube,1960-08-12,9:00:00,10:00:00,hov2-volume,200
+o7,ybr-2-ib,,e2,tube,1960-08-12,8:00:00,9:00:00,hov2-volume,200
+o8,ybr-2-ib,,e2,tube,1960-08-12,9:00:00,10:00:00,hov2-volume,200

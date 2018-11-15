@@ -1,19 +1,18 @@
 {
     "missingValues": [""],
-    "primaryKey":["run_id"],
 	"fields": [{
-			"name": "run_id",
+			"name": "forecast-id",
 			"type": "string",
 			"format": "default",
 			"title": "Forecast ID",
-			"description": "Unique identifier of the forecast event/model run",
+			"description": "Unique identifier of the forecast",
 			"constraints": {
 				"required": true,
 				"unique": true
 			}
 		},
 		{
-			"name": "scenario_id",
+			"name": "scenario-id",
 			"type": "string",
 			"format": "default",
 			"title": "Scenario ID",
@@ -23,7 +22,7 @@
 			}
 		},
 		{
-			"name": "scenario_date",
+			"name": "scenario-date",
 			"type": "date",
 			"format": "default",
 			"title": "Scenario date",
@@ -33,7 +32,7 @@
 			}
 		},
 		{
-			"name": "scenario_name",
+			"name": "scenario-name",
 			"type": "string",
 			"format": "default",
 			"title": "Scenario name",
@@ -43,7 +42,7 @@
 			}
 		},
 		{
-			"name": "forecast_system",
+			"name": "forecast-system",
 			"type": "string",
 			"format": "default",
 			"title": "Forecast System",
@@ -52,7 +51,7 @@
 			}
 		},
 		{
-			"name": "forecast_system_type",
+			"name": "forecast-system-type",
 			"type": "string",
 			"format": "default",
 			"title": "Forecast System Type",
@@ -62,13 +61,13 @@
 			}
 		},
 		{
-			"name": "forecast_creation_date",
+			"name": "forecast-creation-date",
 			"type": "date",
 			"format": "default",
 			"title": "Forecast creation date"
 		},
 		{
-			"name": "forecaster_type",
+			"name": "forecaster-type",
 			"type": "string",
 			"format": "default",
 			"title": "Forecaster type",

@@ -1,8 +1,8 @@
 {
     "missingValues": [""],
-    "primaryKey":["poi-id"],
+    "primaryKey":["poi_id"],
 	"fields": [{
-			"name": "poi-id",
+			"name": "poi id",
 			"type": "string",
 			"format": "default",
 			"title": "Point of Interest ID",
@@ -13,14 +13,14 @@
 			}
 		},
 		{
-			"name": "poi-short-name",
+			"name": "poi_short_name",
 			"type": "string",
 			"format": "default",
 			"description": "Short description for a point of interest.",
 			"title": "Point of Interest Short Name"
 		},
 		{
-			"name": "facility-name",
+			"name": "facility_name",
 			"type": "string",
 			"format": "default",
 			"title": "Facility Name",
@@ -44,7 +44,7 @@
 			"description": "Ending point for the point of interest."
 		},
 		{
-			"name": "area-type",
+			"name": "area_type",
 			"type": "string",
 			"format": "default",
 			"title": "Area Type",
@@ -55,7 +55,7 @@
 			}
 		},
 		{
-			"name": "facility-type",
+			"name": "facility_type",
 			"type": "string",
 			"format": "default",
 			"title": "Facility type",
@@ -64,10 +64,18 @@
 			}
 		},
 		{
-			"name": "functional-class",
+			"name": "functional_class",
 			"type": "string",
 			"format": "default",
 			"title": "Functional classification"
+			"constraints": {
+			    "enum":["Freeway",
+			            "Principal Arterial",
+                        "Minor Arterial",
+                        "Major Collector",
+                        "Minor Collector",
+                        "Local"
+           }
 		},
 		{
 			"name": "features",
@@ -90,7 +98,7 @@
 			"description": "Who is in charge of the facility?"
 		},
 		{
-			"name": "poi-description",
+			"name": "poi_description",
 			"type": "string",
 			"format": "default",
 			"title": "Longer description of the POI"

@@ -1,8 +1,8 @@
 {   
     "missingValues": [""],
-    "primaryKey":["obs-id"],
+    "primaryKey":["obs_id"],
 	"fields": [{
-			"name": "obs-id",
+			"name": "obs_id",
             "type": "string",
             "format": "default",
             "title": "Observation ID",
@@ -13,7 +13,7 @@
 			}
 		},
 		{
-			"name": "poi-id",
+			"name": "poi_id",
 			"type": "string",
 			"format": "default",
 			"title": "Point of interest ID",
@@ -22,13 +22,19 @@
 			}
 		},
 		{
-			"name": "equip-id",
+			"name": "forecast_id",
+			"type": "string",
+			"format": "default",
+			"title": "Forecast POI ID",
+		},
+		{
+			"name": "equip_id",
 			"type": "string",
 			"format": "default",
 			"title": "Equipment ID"
 		},
 		{
-			"name": "equip-type",
+			"name": "equip_type",
 			"type": "string",
 			"format": "default",
 			"title": "Equipment Type",
@@ -38,7 +44,7 @@
 			}
 		},
 		{
-			"name": "obs-date",
+			"name": "obs_date",
 			"type": "date",
 			"format": "default",
 			"title": "Observation date",
@@ -47,7 +53,7 @@
 			}
 		},
 		{
-			"name": "time-start",
+			"name": "time_start",
 			"type": "time",
 			"format": "default",
 			"title": "Observation start time",
@@ -56,7 +62,7 @@
 			}
 		},
 		{
-			"name": "time-end",
+			"name": "time_end",
 			"type": "time",
 			"format": "default",
 			"title": "Observation end time",
@@ -65,7 +71,7 @@
 			}
 		},
 		{
-			"name": "obs-variable",
+			"name": "obs_variable",
 			"type": "string",
 			"format": "default",
 			"title": "Observation variable",
@@ -76,7 +82,7 @@
 			}
 		},
 		{
-			"name": "obs-value",
+			"name": "obs_value",
 			"type": "number",
 			"format": "default",
 			"title": "Observation value",

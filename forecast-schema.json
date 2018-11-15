@@ -1,32 +1,28 @@
 {   "missingValues": [""],
+    "primaryKey":["forecast_id"],
 	"fields": [{
-			"name": "forecast-id",
+			"name": "forecast_id",
 			"type": "string",
 			"format": "default",
 			"title": "Forecast ID",
-			"description": "Unique identifier of forecast",
+			"description": "Unique identifier of a forecasted data point (poi at a time)",
 			"constraints": {
-				"required": true
+				"required": true,
+				"unique": true,
 			}
 		},
 		{
-			"name": "scenario-id",
+			"name": "run_id",
 			"type": "string",
 			"format": "default",
-			"title": "Scenario ID"
-		},
-		{
-			"name": "scenario-date",
-			"type": "date",
-			"format": "default",
-			"title": "Scenario date",
-			"description": "Date for the forecast",
+			"title": "Forecast ID",
+			"description": "Identifier of forecasting event (i.e. a model run)",
 			"constraints": {
 				"required": true
 			}
 		},
 		{
-			"name": "poi-id",
+			"name": "poi_id",
 			"type": "string",
 			"format": "default",
 			"title": "POI ID",
@@ -36,7 +32,7 @@
 			}
 		},
 		{
-			"name": "start-time",
+			"name": "start_time",
 			"type": "time",
 			"format": "default",
 			"title": "Start time",
@@ -46,7 +42,7 @@
 			}
 		},
 		{
-			"name": "end-time",
+			"name": "end_time",
 			"type": "time",
 			"format": "default",
 			"title": "End time",
@@ -56,7 +52,7 @@
 			}
 		},
 		{
-			"name": "forecast-variable",
+			"name": "forecast_variable",
 			"type": "string",
 			"format": "default",
 			"title": "Forecast variable",
@@ -67,7 +63,7 @@
 			}
 		},
 		{
-			"name": "forecast-value",
+			"name": "forecast_value",
 			"type": "number",
 			"format": "default",
 			"title": "Forecast value",

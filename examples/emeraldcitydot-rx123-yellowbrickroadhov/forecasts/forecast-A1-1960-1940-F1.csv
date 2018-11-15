@@ -1,5 +1,5 @@
-forecast-id,scenario-id,scenario-date,poi-id,start-time,end-time,forecast-variable,forecast-value
-f1,s1,1960-11-28,ybr-1-ib,8:00:00,9:00:00,volume,456
-f1,s1,1960-11-28,ybr-1-ib,9:00:00,10:00:00,volume,456
-f1,s1,1960-11-28,ybr-2-ib,8:00:00,9:00:00,volume,500
-f1,s1,1960-11-28,ybr-2-ib,9:00:00,9:00:00,volume,512
+forecast_id,run_id,poi_id,start_time,end_time,forecast_variable,forecast_value
+f1,r1,ybr-1-ib,8:00:00,9:00:00,volume,456
+f2,r1,ybr-1-ib,9:00:00,10:00:00,volume,456
+f3,r1,ybr-2-ib,8:00:00,9:00:00,volume,500
+f4,r1,ybr-2-ib,9:00:00,9:00:00,volume,512
