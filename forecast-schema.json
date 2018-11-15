@@ -33,6 +33,16 @@
 			}
 		},
 		{
+			"name": "forecast_match_id",
+			"type": "string",
+			"format": "default",
+			"title": "forecast match id",
+			"description": "Match between the time,variable, poi in forecast and observation",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
 			"name": "start_time",
 			"type": "time",
 			"format": "default",

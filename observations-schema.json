@@ -22,7 +22,7 @@
 			}
 		},
 		{
-			"name": "forecast_id",
+			"name": "forecast_match_id",
 			"type": "string",
 			"format": "default",
 			"title": "Forecast POI ID"
