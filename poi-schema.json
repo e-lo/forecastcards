@@ -94,12 +94,6 @@
 			"type": "string",
 			"format": "default",
 			"title": "Longer description of the POI"
-		},
-		{
-			"name": "geo",
-			"title": "geojson",
-			"format": "geojson",
-			"description": "geographic representation"
 		}
 	]
 }
