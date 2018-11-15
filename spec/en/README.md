@@ -20,6 +20,7 @@ Forecast Cards are compatible with the [Open Knowledge Foundation's]() [Friction
 
 ### Included Examples
 
+Table Validity Status:  [![goodtables.io](https://goodtables.io/badge/github/e-lo/forecast-cards.svg)](https://goodtables.io/github/e-lo/forecast-cards)
 
 
 
