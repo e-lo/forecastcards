@@ -1,5 +1,9 @@
 forecast_id,run_id,poi_id,start_time,end_time,forecast_variable,forecast_value
-f1,r1,ybr-1-ib,8:00:00,9:00:00,volume,456
-f2,r1,ybr-1-ib,9:00:00,10:00:00,volume,456
-f3,r1,ybr-2-ib,8:00:00,9:00:00,volume,500
-f4,r1,ybr-2-ib,9:00:00,9:00:00,volume,512
+f1,r2,ybr-1-ib,8:00:00,9:00:00,volume,456
+f2,r2,ybr-1-ib,9:00:00,10:00:00,volume,456
+f3,r2,ybr-2-ib,8:00:00,9:00:00,volume,500
+f4,r2,ybr-2-ib,9:00:00,9:00:00,volume,512
+f5,r3,ybr-1-ib,8:00:00,9:00:00,volume,500
+f6,r3,ybr-1-ib,9:00:00,10:00:00,volume,602
+f7,r3,ybr-2-ib,8:00:00,9:00:00,volume,448
+f8,r3,ybr-2-ib,9:00:00,9:00:00,volume,510
