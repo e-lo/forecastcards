@@ -1,6 +1,6 @@
 {
-    "missingValues": [""],
-    "primaryKey":["poi_id"],
+	"missingValues": [""],
+	"primaryKey": ["poi_id"],
 	"fields": [{
 			"name": "poi id",
 			"type": "string",
@@ -67,15 +67,16 @@
 			"name": "functional_class",
 			"type": "string",
 			"format": "default",
-			"title": "Functional classification"
+			"title": "Functional classification",
 			"constraints": {
-			    "enum":["Freeway",
-			            "Principal Arterial",
-                        "Minor Arterial",
-                        "Major Collector",
-                        "Minor Collector",
-                        "Local"
-           }
+				"enum": ["Freeway",
+					"Principal Arterial",
+					"Minor Arterial",
+					"Major Collector",
+					"Minor Collector",
+					"Local"
+				]
+			}
 		},
 		{
 			"name": "features",
