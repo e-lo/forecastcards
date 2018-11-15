@@ -19,8 +19,7 @@
 			"title": "Project ID",
 			"description": "Unique identifier of the project.",
 			"constraints": {
-				"required": true,
-				"unique": true
+				"required": true
 			}
 		},
 		{
