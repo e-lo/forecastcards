@@ -1,6 +1,6 @@
 {
     "missingValues": [""],
-    "primaryKey":["scenario-id"],
+    "primaryKey":["forecast-id","scenario-id"],
 	"fields": [{
 			"name": "forecast-id",
 			"type": "string",
