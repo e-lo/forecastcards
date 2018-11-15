@@ -1,4 +1,4 @@
-forecast-id,scenario-id,scenario-date,scenario-name,forecast-system,forecast-system-type, forecast-creation-date,forecaster-type
+forecast-id,scenario-id,scenario-date,scenario-name,forecast-system,forecast-system-type,forecast-creation-date,forecaster-type
 f1,s1,1940-09-01,opening year,the great OZ machine v1.2,pop-growth-rates,1937-03-03,MPO
 f2,s2,1960-09-01,horizon year,the great OZ machine v1.2,pop-growth-rates,1937-03-03,consultant
-f3,s2,1960-09-01,horizon year,the great OZ machine v1.5,travel-model, 1940-02-02,consultant
+f3,s2,1960-09-01,horizon year,the great OZ machine v1.5,travel-model,1940-02-02,consultant
