@@ -60,8 +60,7 @@
 			"format": "default",
 			"title": "Facility type",
 			"constraints": {
-				"required": true,
-				"enum": []
+				"required": true
 			}
 		},
 		{
