@@ -2,7 +2,7 @@
     "missingValues": [""],
     "primaryKey":["project_id"],
 	"fields": [{
-			"name": "project id",
+			"name": "project_id",
 			"type": "string",
 			"format": "default",
 			"title": "Project ID",

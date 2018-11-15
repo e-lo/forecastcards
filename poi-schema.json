@@ -2,7 +2,7 @@
 	"missingValues": [""],
 	"primaryKey": ["poi_id"],
 	"fields": [{
-			"name": "poi id",
+			"name": "poi_id",
 			"type": "string",
 			"format": "default",
 			"title": "Point of Interest ID",
