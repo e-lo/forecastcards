@@ -10,6 +10,12 @@
 			}
 		},
 		{
+			"name": "scenario-id",
+			"type": "string",
+			"format": "default",
+			"title": "Scenario ID"
+		},
+		{
 			"name": "scenario-date",
 			"type": "date",
 			"format": "default",
