@@ -40,7 +40,7 @@
 			}
 		},
 		{
-			"name": "date-open-planned",
+			"name": "year-open-planned",
 			"type": "year",
 			"format": "default",
 			"title": "Planned Opening Year",
@@ -54,10 +54,7 @@
 			"type": "year",
 			"format": "default",
 			"title": "Horizon Date",
-			"description": "Planning Horizon ",
-			"constraints": {
-				"required": true
-			}
+			"description": "Planning Horizon"
 		},
 		{
 			"name": "date-open-actual",
