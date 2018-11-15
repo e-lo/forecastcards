@@ -1,5 +1,6 @@
-{   "missingValues": [""],
-    "primaryKey":["forecast_id"],
+{
+	"missingValues": [""],
+	"primaryKey": ["forecast_id"],
 	"fields": [{
 			"name": "forecast_id",
 			"type": "string",
@@ -8,7 +9,7 @@
 			"description": "Unique identifier of a forecasted data point (poi at a time)",
 			"constraints": {
 				"required": true,
-				"unique": true,
+				"unique": true
 			}
 		},
 		{
