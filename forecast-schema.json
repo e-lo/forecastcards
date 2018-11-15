@@ -1,4 +1,4 @@
-{
+{   "missingValues": [""],
 	"fields": [{
 			"name": "forecast-id",
 			"type": "string",

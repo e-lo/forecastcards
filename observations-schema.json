@@ -1,13 +1,15 @@
-{
+{   
+    "missingValues": [""],
+    "primaryKey":["obs-id"],
 	"fields": [{
 			"name": "obs-id",
-			"type": "string",
-			"format": "default",
-			"title": "Observation ID",
-			"description": "Unique identifier for observation",
-			"constraints": {
+            "type": "string",
+            "format": "default",
+            "title": "Observation ID",
+            "description": "Unique identifier for observation",
+            "constraints": {
 				"required": true,
-				"unique": true
+                "unique": true
 			}
 		},
 		{
@@ -70,7 +72,7 @@
 			"description": "i.e. volume, ridership, etc.",
 			"constraints": {
 				"required": true,
-				"enum": ["volume", "ridership", "boardings", "alightings", "speed", "travel-time"]
+				"enum": ["volume", "ridership", "boardings", "alightings", "speed", "travel-time","hov2-volume","hov3-volume"]
 			}
 		},
 		{

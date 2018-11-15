@@ -1,4 +1,6 @@
 {
+    "missingValues": [""],
+    "primaryKey":["poi-id"],
 	"fields": [{
 			"name": "poi-id",
 			"type": "string",
