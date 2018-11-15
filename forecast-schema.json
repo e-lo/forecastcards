@@ -6,8 +6,7 @@
 			"title": "Forecast ID",
 			"description": "Unique identifier of forecast",
 			"constraints": {
-				"required": true,
-				"unique": true
+				"required": true
 			}
 		},
 		{
