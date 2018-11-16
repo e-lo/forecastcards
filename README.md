@@ -15,9 +15,14 @@ There four are types of Forecast Cards:
  - Forecasts, which are predictions at the points of interest about what the project will do,
  - Observations, which are points of data used to evaluate the the forecasts
  
- Each "card" is a text-based CSV file.  
+Each "card" is a text-based CSV file.  
  
+### The Schema
+
+![entity relationship diagram](spec/en/forecast-cards-erd.png?raw=true "Forecast Cards Schema Entity Relationship Diagram..slightly out of date")
+
 Forecast Cards are compatible with the [Open Knowledge Foundation's]() [Frictionless Data](http://frictionlessdata.io) [Table Schema]( https://github.com/frictionlessdata/specs/blob/master/specs/table-schema.md) specification.
+
 
 ### Included Examples
 
@@ -31,18 +36,17 @@ Table Validity Status:  [![goodtables.io](https://goodtables.io/badge/github/e-l
 
 In order to leverage a common set of tools, we suggest that forecast card data is stored in the following naming and folder structure:
 
-`agency-name`-`project-id`-`project-short-name`/
-   |---`README.md`
-   |---`
-   |---`project-<project-id>-<project-short-name>.csv`
-   |---`scenarios-<project-id>.csv`
-   |---`poi-<project-id>.csv`
-   |---`observations`/
-   |   |---`observations-<date>.csv`
-   |
-   |---`forecasts`/
-   |   |---`forecast-<scenario-id>-<scenario-year>-<forecast-creation>-<forecast-id>.csv`
-
+    agency-name-project-id-project-short-name/
+       |---README.md
+       |---
+       |---project-<project-id>-<project-short-name>.csv
+       |---scenarios-<project-id>.csv
+       |---poi-<project-id>.csv
+       |---observations/
+       |   |---observations-<date>.csv
+       |
+       |---forecasts/
+       |   |---forecast-<scenario-id>-<scenario-year>-<forecast-creation>-<forecast-id>.csv
 
 ## How do I start on my own?
 
