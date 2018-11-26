@@ -10,6 +10,6 @@ setup(
                       'tableschema',
                       'graphviz',
                       'statsmodels'],
-    package_data={'forecastcards': ['examples'/*]},
+    package_data={'forecastcards': ['examples/*']},
     long_description=open('README.txt').read(),
 )
