@@ -4,6 +4,7 @@ setup(
     name='ForecastCards',
     version='0.1.0dev',
     packages=['forecastcards'],
+    package_dir   = { 'forecastcards':'forecastcards' },
     install_requires=['pandas==0.22',
                       'requests',
                       'goodtables',
