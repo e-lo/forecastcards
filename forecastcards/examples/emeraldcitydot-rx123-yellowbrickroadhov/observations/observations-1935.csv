@@ -1,4 +1,4 @@
-obs_id,poi_id,forecast_id,equip_id,equip_type,obs_date,time_start,time_end,obs_variable,obs_value
+obs_id,poi_id,forecast_match_id,equip_id,equip_type,obs_date,time_start,time_end,obs_variable,obs_value
 base1,ybr-1-ib,,e1,tube,1940-09-01,8:00:00,9:00:00,volume,500
 base2,ybr-1-ib,,e1,tube,1940-09-01,9:00:00,10:00:00,volume,500
 base3,ybr-2-ib,,e2,tube,1940-09-01,8:00:00,9:00:00,volume,500
