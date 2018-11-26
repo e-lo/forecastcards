@@ -1,0 +1,6 @@
+pandas==0.22
+requests
+goodtables
+tableschema
+graphviz
+statsmodels
