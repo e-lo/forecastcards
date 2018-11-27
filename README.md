@@ -26,9 +26,11 @@ Forecast Cards are compatible with the [Open Knowledge Foundation's]() [Friction
 
 ### Included Examples
 
-This project currently includes one example, which is the Emerald City DOT's HOV expansion for the Yellow Brick Road, which is contained in `examples/emeraldcitydot-rx123-yellowbrickroadhov`
+This project currently includes one example, which is the Emerald City DOT's HOV expansion for the Yellow Brick Road, which is contained in `forecastcards/examples/emeraldcitydot-rx123-yellowbrickroadhov`
 
 This example can be analyzed and run with the `notebooks` folder of this directory and can be run using [binder](http://www.mybinder.org) or [colaboratory](https://colab.research.google.com).
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/e_lo/forecast-cards/blob/master/notebooks/ForecastCardsEmeraldCity.ipynb)
 
 Table Validity Status:  [![goodtables.io](https://goodtables.io/badge/github/e-lo/forecast-cards.svg)](https://goodtables.io/github/e-lo/forecast-cards)
 

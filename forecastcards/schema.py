@@ -1,8 +1,9 @@
+import traceback
 from urllib.parse import urljoin
 from tableschema import Schema
 from graphviz import Digraph
 
-default_schema_url = 'https://raw.github.com/e-lo/forecast-cards/master/spec/en'
+default_schema_url = r'https://raw.github.com/e-lo/forecast-cards/master/spec/en/'
 
 default_schema_parts = {
     "poi": "poi-schema.json",
@@ -25,20 +26,23 @@ def validate_schemas(url_loc = default_schema_url, schema_parts = default_schema
       url location of collection of valid json files that define the schema
     schema_parts
       dictionary of <schema part name>:<filename>
-      
-    If schema doesn't validate, clean your JSON with https://jsonlint.com/ 
+
+    If schema doesn't validate, clean your JSON with https://jsonlint.com/
     '''
-    schema_locs = { k: urljoin(url_loc,v) for k,v in schema_parts.items() }
+    schemas_locs = { k: urljoin(url_loc,v) for k,v in schema_parts.items() }
     schemas_dict = {}
-    for k,v in schemas_loc.items():
+    for k,v in schemas_locs.items():
         print ("Obtaining ", k,"schema from: ",v)
-        schemas_dict[k] = Schema(v)
+        try:
+            schemas_dict[k] = Schema(v)
+        except Exception:
+            traceback.print_exc()
     return schemas_dict
-    
+
 def schema_erd_graph(schemas_dict,relationships=default_relationships):
     erd_graph = Digraph(name='Schemas', node_attr={'shape': 'plain'})
 
-    for k,v in schemas.items():
+    for k,v in schemas_dict.items():
       node_label="<<table border='0' cellborder='1' cellspacing='0'>"
       node_label+="<tr><td><b>"
       node_label+=str(k)
@@ -51,14 +55,14 @@ def schema_erd_graph(schemas_dict,relationships=default_relationships):
         node_label+="</td></tr>"
       node_label+="</table>>"
       erd_graph.node(k,label = node_label)
-    
+
     if relationships:
         for i,j in relationships:
-            erd_graph.edge(
-        erd_graph.edge(i,j)
+                erd_graph.edge(i,j)
 
-    return: erd_graph     
-    
+
+    return erd_graph
+
 def relationship_graph():
     g = Digraph('G')
     g.attr(bgcolor='cadetblue', label='Project P\nproject_roadabc.csv', fontcolor='white')
@@ -83,7 +87,7 @@ def relationship_graph():
     with g.subgraph(name='cluster2') as c2:
         c2.attr(fillcolor='white', label='Horizon Scenario A2\n', fontcolor='black',
               style='filled')
-    
+
         with c2.subgraph(name='cluster21') as c21:
             c21.attr(fillcolor='white', label='Forecast Run 12\nforecast-buildA2-2018-1988-f12.csv', fontcolor='black',
                    style='filled')
@@ -97,14 +101,14 @@ def relationship_graph():
             c22.attr('node', shape='circle',style='filled')
             c22.node('b1node2',label="poi 1\n55,433",fillcolor='seagreen')
             c22.node('b2node2',label="poi 2\n47,350",fillcolor='cornflowerblue')
-    
+
     with g.subgraph(name='cluster3') as c3:
         c3.attr(fillcolor='white', label='Opening Year Observations\nobservations-1998-10-11.csv', fontcolor='black',
                style='filled')
         c3.attr('node', shape='circle',style='filled')
         c3.node('c1node',label="poi 1\n22,450",fillcolor='crimson')
         c3.node('c2node',label="poi 2\n14,450",fillcolor='darkorange')
-    
+
     with g.subgraph(name='cluster4') as c4:
         c4.attr(fillcolor='white', label='Horizon Year Observations\nobservations-2018-09-10.csv', fontcolor='black',
                style='filled')
