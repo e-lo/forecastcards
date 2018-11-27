@@ -23,7 +23,7 @@ test_requirements = [
 ]
 
 setup(
-    name='ForecastCards',
+    name='forecastcards',
     version='0.1.0dev',
     packages=find_packages(include=['forecastcards']),
     long_description=readme,
