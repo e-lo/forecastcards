@@ -39,7 +39,7 @@ def validate_schemas(url_loc = default_schema_url, schema_parts = default_schema
             traceback.print_exc()
     return schemas_dict
 
-def schema_erd_graph(schemas_dict,relationships=default_relationships):
+def make_erd_graph(schemas_dict,relationships=default_relationships):
     erd_graph = Digraph(name='Schemas', node_attr={'shape': 'plain'})
 
     for k,v in schemas_dict.items():
