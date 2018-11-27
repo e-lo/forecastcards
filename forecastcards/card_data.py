@@ -11,7 +11,7 @@ default_subdirs = ["examples"]
 def map_data(repo_loc=default_repo_api,subdirs=default_subdirs):
     '''Identify where data is, what schema it should conform to, and return a dictionary with locations.
     '''
-    r = requests.get(repo_api)
+    r = requests.get(repo_loc)
     rj = r.json()
 
     card_locs = {
