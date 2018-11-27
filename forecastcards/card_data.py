@@ -100,7 +100,7 @@ def combine_data(card_locs):
         [pd.read_csv(
             f,
             dtype={'obs_value':float},
-            ) for f in card_locs["observations"],
+            ) for f in card_locs["observations"]
         ],
         ignore_index=True,
     )
@@ -109,7 +109,7 @@ def combine_data(card_locs):
         [pd.read_csv(
             f,
             dtype={'forecast_value':float},
-            ) for f in card_locs["forecast"],
+            ) for f in card_locs["forecast"]
         ],
         ignore_index=True,
     )
