@@ -1,7 +1,10 @@
 
 import requests
+from urllib.parse import urljoin
 import pandas as pd
 from goodtables import validate
+
+
 
 
 default_repo_api = "https://api.github.com/repos/e-lo/forecast-cards/git/trees/f35185168b238429157adcbf5ba09d09ae7d0172?recursive=1"
