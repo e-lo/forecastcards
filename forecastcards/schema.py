@@ -15,7 +15,7 @@ default_schema_parts = {
 
 default_relationships = [
         ("poi:poi_id", "observations:poi_id"),
-        ("observations:forecast_id","forecast:forecast_id"),
+        ("observations:forecast_match_id","forecast:forecast_match_id"),
         ("scenario:run_id","forecast:run_id"),
         ("project:project_id","scenario:project_id"),
 ]
@@ -35,6 +35,7 @@ def validate_schemas(url_loc = default_schema_url, schema_parts = default_schema
         print ("Obtaining ", k,"schema from: ",v)
         try:
             schemas_dict[k] = Schema(v)
+            print("Schema",k,"valid.")
         except Exception:
             traceback.print_exc()
     return schemas_dict
@@ -43,15 +44,32 @@ def make_erd_graph(schemas_dict,relationships=default_relationships):
     erd_graph = Digraph(name='Schemas', node_attr={'shape': 'plain'})
 
     for k,v in schemas_dict.items():
-      node_label="<<table border='0' cellborder='1' cellspacing='0'>"
-      node_label+="<tr><td><b>"
+      node_label="<<table  border='0' cellborder='1' cellspacing='0'>"
+      node_label+="<tr><td BGCOLOR='dodgerblue'><FONT point-size='16' FACE='lato'><b>"
       node_label+=str(k)
-      node_label+="</b></td></tr>"
+      node_label+="</b></FONT></td></tr>"
       for f in v.descriptor['fields']:
-        node_label+="<tr><td port='"
+        node_label+="<tr ><td port='"
         node_label+=f['name']
         node_label+="'>"
-        node_label+=f['name']
+        if 'constraints' in f.keys():
+          if 'required' in f['constraints'].keys():
+            if f['constraints']['required']==True:
+              node_label+="<b><FONT COLOR='firebrick' FACE='courier'>"+f['name']+"*</FONT></b>"
+            else:
+              node_label+="<b><FONT COLOR='grey14' FACE='courier'>"+f['name']+"</FONT></b>"
+          else:
+              node_label+="<b><FONT COLOR='grey14' FACE='courier'>"+f['name']+"</FONT></b>"
+        else:
+          node_label+="<b><FONT COLOR='grey14' FACE='courier'>"+f['name']+"</FONT></b>"
+
+        if 'description' in f.keys():
+          node_label+="<br/>"
+          node_label+=f['description']
+        if 'constraints' in f.keys():
+          if 'enum' in f['constraints'].keys():
+            node_label+="<br/>"
+            node_label+="<FONT point-size = '8'>One of:</FONT><FONT point-size = '8' COLOR='dodgerblue3' FACE='courier'>"+", ".join(f['constraints']["enum"])+"</FONT>"
         node_label+="</td></tr>"
       node_label+="</table>>"
       erd_graph.node(k,label = node_label)

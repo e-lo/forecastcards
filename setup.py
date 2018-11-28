@@ -29,7 +29,7 @@ setup(
     long_description=readme,
     author="Elizabeth Sall",
     author_email='easall@gmail.com',
-    url='https://github.com/e-lo/forecast-cards',
+    url='https://github.com/e-lo/forecastcards',
     include_package_data=True,
     install_requires=requirements,
     package_data={'forecastcards': ['examples/*']},
