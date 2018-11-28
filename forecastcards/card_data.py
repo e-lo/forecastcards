@@ -7,8 +7,8 @@ from goodtables import validate
 
 
 
-default_repo_api = 'https://api.github.com/repos/e-lo/forecast-cards/git/trees/f35185168b238429157adcbf5ba09d09ae7d0172?recursive=1'
-default_raw_url  = 'https://raw.github.com/e-lo/forecast-cards/master/'
+default_repo_api = 'https://api.github.com/repos/e-lo/forecastcards/git/trees/f35185168b238429157adcbf5ba09d09ae7d0172?recursive=1'
+default_raw_url  = 'https://raw.github.com/e-lo/forecastcards/master/'
 default_subdirs  = ['examples']
 
 default_recode_na_vars   = ['forecast_system_type', 'area_type', 'forecaster_type', 'state', 'agency', 'functional_class','facility_type','project_type']
