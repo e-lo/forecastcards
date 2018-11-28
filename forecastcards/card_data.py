@@ -182,8 +182,19 @@ def categorical_to_dummy(df, categorical_cols_list=default_categorical_cols,requ
     dummied_df = pd.concat([df[[v for v in required_vars if v not in categorical_cols_list]],dummy_df],axis=1)
     return dummied_df
 
+default_no_scale_cols = ['scenario_date','forecast_creation_date','forecast_value','obs_value']
+
+def scale_dummies_by_forecast_value(df, no_scale_cols=default_no_scale_cols):
+    scale_cols_df = usable_dummy_df.drop(no_scale_cols, axis=1).mul(usable_dummy_df['forecast_value'], axis=0)
+    scaled_df     = pd.concat([scale_cols_df,usable_dummy_df[no_scale_cols]],axis=1)
+    return scaled_df
+
 def default_data_clean(df):
+    Print("Fix Missing Values")
     df = fix_missing_values(df)
+    Print("Creating default categorical variables")
     df = create_default_categorical_vars(df)
     df = categorical_to_dummy(df)
+    Print("Scaling dummy variables by forecast value")
+    df = scale_dummies_by_forecast_value(df)
     return df

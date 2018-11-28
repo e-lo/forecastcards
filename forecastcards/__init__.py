@@ -19,6 +19,7 @@ from forecastcards.card_data import (
     categorical_to_dummy,
     create_default_categorical_vars,
     default_data_clean,
+    scale_dummies_by_forecast_value,
 )
 
 __all__ = [
@@ -40,4 +41,5 @@ __all__ = [
     'categorical_to_dummy',
     'create_default_categorical_vars',
     'default_data_clean',
+    'scale_dummies_by_forecast_value',
 ]
