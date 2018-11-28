@@ -5,10 +5,15 @@ from goodtables import validate
 
 
 default_repo_api = "https://api.github.com/repos/e-lo/forecast-cards/git/trees/f35185168b238429157adcbf5ba09d09ae7d0172?recursive=1"
+default_subdirs  = ["examples"]
 
-default_subdirs = ["examples"]
+default_recode_na_vars   = ['forecast_system_type', 'area_type', 'forecaster_type', 'state', 'agency', 'functional_class','facility_type','project_type']
+default_no_na_vars       = ['scenario_date','forecast_creation_date','forecast_value','obs_value']
+default_required_vars    = default_recode_na_vars + default_no_na_vars
+default_categorical_cols = ['project_size','creation_decade','scenario_decade','functional_class','forecast_system_type','project_type','agency','forecaster_type','area_type','facility_type','state']
 
-def map_data(repo_loc=default_repo_api,subdirs=default_subdirs):
+
+def map_cards(repo_loc=default_repo_api,subdirs=default_subdirs):
     '''Identify where data is, what schema it should conform to, and return a dictionary with locations.
     '''
     r = requests.get(repo_loc)
@@ -51,6 +56,10 @@ def map_data(repo_loc=default_repo_api,subdirs=default_subdirs):
 
 def validate_cards(card_locs,schemas_loc):
     '''
+    card_locs
+      dictionary of card type: list of files
+    schemas_loc
+      dictionary of card type: schema locations
     If errors are found, try https://try.goodtables.io as a good GUI for identifying issues.
     '''
     reports={}
@@ -132,3 +141,44 @@ def combine_data(card_locs):
             how='left')
 
     return all_df
+
+
+def fix_missing_values(all_df,recode_na_vars=default_recode_na_vars,no_na_vars=default_no_na_vars):
+    '''
+    Recode missing variables in ``recode_na_vars`` list as 'missing'.
+    Delete records that have a missing ``no_na_vars``.
+    Returns recoded/cleaned dataframe.
+    '''
+    all_df[recode_na_vars].fillna('missing')
+
+    usable_df = all_df.dropna(subset=no_na_vars)
+
+    print("Kept",len(usable_df),"of",len(all_df))
+
+    return usable_df
+
+def create_default_categorical_vars(df):
+    ## categorical decades variable
+    df['creation_decade'] = (df['forecast_creation_date'].apply(lambda x: x.year//10*10)).astype('category')
+    df['scenario_decade'] = (df['scenario_date'].apply(lambda x: x.year//10*10)).astype('category')
+
+    ## large projects dummy variable
+    breakpoint = 30000
+    bins = [df['forecast_value'].min(), breakpoint, breakpoint+usable_df['forecast_value'].max()]
+    labels = ["small_project","large_project"]
+    df['project_size'] = pd.cut(usable_df['forecast_value'], bins=bins, labels=labels)
+
+    return df
+
+
+def categorical_to_dummy(df, categorical_cols_list=default_categorical_cols,required_vars = default_required_vars):
+    dummy_df = pd.get_dummies(df[categorical_cols])
+
+    dummied_df = pd.concat([df[[v for v in required_vars if v not in categorical_cols]],dummy_df],axis=1)
+    return dummied_df
+
+def default_data_clean(df):
+    df = fix_missing_values(df)
+    df = create_default_categorical_vars(df)
+    df = categorical_to_dummy(df)
+    return df

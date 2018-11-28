@@ -11,7 +11,14 @@ from forecastcards.card_data import (
     validate_cards,
     combine_data,
     default_repo_api,
-    default_subdirs
+    default_subdirs,
+    default_recode_na_vars,
+    default_no_na_vars,
+    fix_missing_values,
+    default_categorical_cols,
+    categorical_to_dummy,
+    create_default_categorical_vars,
+    default_data_clean,
 )
 
 __all__ = [
@@ -26,4 +33,11 @@ __all__ = [
     'validate_schemas',
     'make_erd_graph',
     'relationship_graph',
+    'default_recode_na_vars',
+    'default_no_na_vars',
+    'fix_missing_values',
+    'default_categorical_cols',
+    'categorical_to_dummy',
+    'create_default_categorical_vars',
+    'default_data_clean',
 ]
