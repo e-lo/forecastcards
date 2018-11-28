@@ -179,7 +179,7 @@ def create_default_categorical_vars(df):
 def categorical_to_dummy(df, categorical_cols_list=default_categorical_cols,required_vars = default_required_vars):
     dummy_df = pd.get_dummies(df[categorical_cols])
 
-    dummied_df = pd.concat([df[[v for v in required_vars if v not in categorical_cols]],dummy_df],axis=1)
+    dummied_df = pd.concat([df[[v for v in required_vars if v not in categorical_cols_list]],dummy_df],axis=1)
     return dummied_df
 
 def default_data_clean(df):
