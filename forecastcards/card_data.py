@@ -18,7 +18,7 @@ def map_cards(repo_loc=default_repo_api,subdirs=default_subdirs):
     '''
     r = requests.get(repo_loc)
     rj = r.json()
-
+    print(rj)
     card_locs = {
            "poi": [],
            "scenario": [],
