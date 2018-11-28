@@ -169,9 +169,9 @@ def create_default_categorical_vars(df):
 
     ## large projects dummy variable
     breakpoint = 30000
-    bins = [df['forecast_value'].min(), breakpoint, breakpoint+usable_df['forecast_value'].max()]
+    bins = [df['forecast_value'].min(), breakpoint, breakpoint+df['forecast_value'].max()]
     labels = ["small_project","large_project"]
-    df['project_size'] = pd.cut(usable_df['forecast_value'], bins=bins, labels=labels)
+    df['project_size'] = pd.cut(df['forecast_value'], bins=bins, labels=labels)
 
     return df
 
