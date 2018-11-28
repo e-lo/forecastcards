@@ -18,7 +18,7 @@ def map_cards(repo_loc=default_repo_api,subdirs=default_subdirs):
     '''
     r = requests.get(repo_loc)
     rj = r.json()
-    print(rj)
+    #if verbose: print(rj)
     card_locs = {
            "poi": [],
            "scenario": [],
@@ -29,8 +29,9 @@ def map_cards(repo_loc=default_repo_api,subdirs=default_subdirs):
     ## todo better regex matching by project
     for file in rj['tree']:
       path_list = file['path'].split("/")
-      print(path_list)
-      if len(path_list)>2 and path_list[1] in subdirs and file['type']=='blob':
+      #if verbose: print(path_list)
+      if len(path_list)>1 and path_list[0] in subdirs and file['type']=='blob':
+          #if verbose: print("tier1",path_list)
           if path_list[-1][0:8].lower()=="forecast":
               full_url = urljoin(repo_raw,file['path'])
               print("adding",full_url,"to forecast")
