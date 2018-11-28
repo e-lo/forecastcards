@@ -10,8 +10,10 @@ def test_make_erd_graph():
 def test_relationship_graph():
     forecastcards.relationship_graph()
 
-def test_map_data():
-    forecastcards.map_data()
+def test_map_cards():
+    d = forecastcards.map_cards()
+    for k,v in d.items():
+        assert len(v)>0
 
 card_locs = {
        "poi": ['https://raw.github.com/e-lo/forecast-cards/master/forecastcards/examples/emeraldcitydot-rx123-yellowbrickroadhov/poi-rx123.csv'],

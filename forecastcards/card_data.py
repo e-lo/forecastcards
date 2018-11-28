@@ -29,7 +29,7 @@ def map_cards(repo_loc=default_repo_api,subdirs=default_subdirs):
     ## todo better regex matching by project
     for file in rj['tree']:
       path_list = file['path'].split("/")
-
+      print(path_list)
       if len(path_list)>2 and path_list[1] in subdirs and file['type']=='blob':
           if path_list[-1][0:8].lower()=="forecast":
               full_url = urljoin(repo_raw,file['path'])
