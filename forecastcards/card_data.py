@@ -36,23 +36,23 @@ def map_cards(repo_loc=default_repo_api,subdirs=default_subdirs):
       if len(path_list)>1 and path_list[0] in subdirs and file['type']=='blob':
           #if verbose: print("tier1",path_list)
           if path_list[-1][0:8].lower()=="forecast":
-              full_url = urljoin(repo_raw,file['path'])
+              full_url = urljoin(repo_loc,file['path'])
               print("adding",full_url,"to forecast")
               card_locs["forecast"].append(full_url)
           if path_list[-1][0:12].lower()=="observations":
-              full_url = urljoin(repo_raw,file['path'])
+              full_url = urljoin(repo_loc,file['path'])
               print("adding",full_url,"to observations")
               card_locs["observations"].append(full_url)
           if path_list[-1][0:3].lower()=="poi":
-              full_url = urljoin(repo_raw,file['path'])
+              full_url = urljoin(repo_loc,file['path'])
               print("adding",full_url,"to poi")
               card_locs["poi"].append(full_url)
           if path_list[-1][0:7].lower()=="project":
-              full_url = urljoin(repo_raw,file['path'])
+              full_url = urljoin(repo_loc,file['path'])
               print("adding",full_url,"to project")
               card_locs["project"].append(full_url)
           if path_list[-1][0:8].lower()=="scenario":
-              full_url = urljoin(repo_raw,file['path'])
+              full_url = urljoin(repo_loc,file['path'])
               print("adding",full_url,"to scenario")
               card_locs["scenario"].append(full_url)
 
