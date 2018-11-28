@@ -7,7 +7,7 @@ from forecastcards.schema import (
     relationship_graph,
 )
 from forecastcards.card_data import (
-    map_data,
+    map_cards,
     validate_cards,
     combine_data,
     default_repo_api,
@@ -22,7 +22,7 @@ from forecastcards.card_data import (
 )
 
 __all__ = [
-    'map_data',
+    'map_cards',
     'validate_cards',
     'combine_data',
     'default_repo_api',
