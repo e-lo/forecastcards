@@ -7,8 +7,9 @@ from goodtables import validate
 
 
 
-default_repo_api = "https://api.github.com/repos/e-lo/forecast-cards/git/trees/f35185168b238429157adcbf5ba09d09ae7d0172?recursive=1"
-default_subdirs  = ["examples"]
+default_repo_api = 'https://api.github.com/repos/e-lo/forecast-cards/git/trees/f35185168b238429157adcbf5ba09d09ae7d0172?recursive=1'
+default_raw_url  = 'https://raw.github.com/e-lo/forecast-cards/master/'
+default_subdirs  = ['examples']
 
 default_recode_na_vars   = ['forecast_system_type', 'area_type', 'forecaster_type', 'state', 'agency', 'functional_class','facility_type','project_type']
 default_no_na_vars       = ['scenario_date','forecast_creation_date','forecast_value','obs_value']
@@ -16,7 +17,7 @@ default_required_vars    = default_recode_na_vars + default_no_na_vars
 default_categorical_cols = ['project_size','creation_decade','scenario_decade','functional_class','forecast_system_type','project_type','agency','forecaster_type','area_type','facility_type','state']
 
 
-def map_cards(repo_loc=default_repo_api,subdirs=default_subdirs):
+def map_cards(repo_loc=default_repo_api,subdirs=default_subdirs,repo_raw=default_raw_url):
     '''Identify where data is, what schema it should conform to, and return a dictionary with locations.
     '''
     r = requests.get(repo_loc)
@@ -36,23 +37,23 @@ def map_cards(repo_loc=default_repo_api,subdirs=default_subdirs):
       if len(path_list)>1 and path_list[0] in subdirs and file['type']=='blob':
           #if verbose: print("tier1",path_list)
           if path_list[-1][0:8].lower()=="forecast":
-              full_url = urljoin(repo_loc,file['path'])
+              full_url = urljoin(repo_raw,file['path'])
               print("adding",full_url,"to forecast")
               card_locs["forecast"].append(full_url)
           if path_list[-1][0:12].lower()=="observations":
-              full_url = urljoin(repo_loc,file['path'])
+              full_url = urljoin(repo_raw,file['path'])
               print("adding",full_url,"to observations")
               card_locs["observations"].append(full_url)
           if path_list[-1][0:3].lower()=="poi":
-              full_url = urljoin(repo_loc,file['path'])
+              full_url = urljoin(repo_raw,file['path'])
               print("adding",full_url,"to poi")
               card_locs["poi"].append(full_url)
           if path_list[-1][0:7].lower()=="project":
-              full_url = urljoin(repo_loc,file['path'])
+              full_url = urljoin(repo_raw,file['path'])
               print("adding",full_url,"to project")
               card_locs["project"].append(full_url)
           if path_list[-1][0:8].lower()=="scenario":
-              full_url = urljoin(repo_loc,file['path'])
+              full_url = urljoin(repo_raw,file['path'])
               print("adding",full_url,"to scenario")
               card_locs["scenario"].append(full_url)
 
