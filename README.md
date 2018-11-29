@@ -92,14 +92,30 @@ Please [submit an issue!](https://github.com/e-lo/forecastcards/issues)
 
 ### Starting a new project
 
-- create a new project folder and create project file
-- determine points of interest and create POI file
+#### From Template [recommended]
+
+1. Copy the folder from `\template` folder in the `forecastcards` package to your folder for holding all the project forecastcards.  
+2. Rename project folder according to schema, taking care to not duplicate any - roject IDs within your analysis scope (usually your agency of the [forecastcarddata store](https://github.com/e-lo/forecastcarddata)).  
+3. Add observations, POIs, forecast runs, and forecasts for specific POIs as they are determined or created.  
+4. Confirm data in new project conforms to data schema by running `python check_cards.py -pd <project_directory>` or for all the projects in a directory by running `python check_cards.py` from that directory.
 
 ### Adding a forecast to an existing project
 
-- add a new forecast csv file with relevant data for points of interest
-- add am entry to scenario csv file about the model run
+1. add a new forecast csv file with relevant data for points of interest  
+2. add an entry to scenario csv file about the model run  
+3. Add any additional points of interest to poi csv file  
+4. Confirm new data in project conforms to data schema by running `python check_cards.py -pd <project_directory>` or for all the projects in a directory by running `python check_cards.py` from that directory.  
 
 ### Adding observed data to existing project
 
-- add a new observations csv
+1. Add a new observations csv  
+2. Confirm new data in project conforms to data schema by running `python check_cards.py -pd <project_directory>` or for all the projects in a directory by running `python check_cards.py` from that directory.  
+
+### Run analysis
+
+As summarized in [![the Estimate_Quantiles.ipynb notebook](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/e_lo/forecast-cards/blob/master/notebooks/Estimate_Quantiles.ipynb)
+
+1. Select cards to use  
+2. Clean and merge cards  
+3. Create any additional categorical variables  
+4. Perform regressions  
