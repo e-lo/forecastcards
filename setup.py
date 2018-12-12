@@ -15,7 +15,8 @@ requirements = [
     'goodtables',
     'tableschema',
     'graphviz',
-    'statsmodels'
+    'statsmodels',
+    'jupyter'
 ]
 
 test_requirements = [

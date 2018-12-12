@@ -4,3 +4,4 @@ goodtables
 tableschema
 graphviz
 statsmodels
+jupyter
