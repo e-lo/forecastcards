@@ -92,7 +92,7 @@ class Card_schema:
 
         erd_graph = Digraph(name='Schemas', node_attr={'shape': 'plain'})
 
-        for k,v in self.schemas_dict.items():
+        for k,v in self.schema_dict.items():
           node_label="<<table  border='0' cellborder='1' cellspacing='0'>"
           node_label+="<tr><td BGCOLOR='dodgerblue'><FONT point-size='16' FACE='lato'><b>"
           node_label+=str(k)
@@ -124,7 +124,7 @@ class Card_schema:
           erd_graph.node(k,label = node_label)
 
         if self.relationships:
-            for i,j in relationships:
+            for i,j in self.relationships:
                     erd_graph.edge(i,j)
 
 
