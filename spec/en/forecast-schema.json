@@ -67,7 +67,7 @@
 			"type": "string",
 			"format": "default",
 			"title": "Forecast variable",
-			"description": "The variable that is being forecast, i.e. ridership, volume, boardings, speed",
+			"description": "The variable that is being forecast for the directional POI (i.e. ridership, volume, boardings, speed, etc.). Note that for volume, this would be a one-way volume.",
 			"constraints": {
 				"required": true,
 				"enum": ["volume", "ridership", "boardings", "alightings", "speed", "travel-time"]

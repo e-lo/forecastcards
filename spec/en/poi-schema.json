@@ -6,7 +6,7 @@
 			"type": "string",
 			"format": "default",
 			"title": "Point of Interest ID",
-			"description": "Unique identifier for a point of interest.",
+			"description": "Unique identifier for a point of interest. Note that a point of interest should reference a SINGLE direction on a facility.  If you have more than one direction, you can create two separate POIs.",
 			"constraints": {
 				"required": true,
 				"unique": true
