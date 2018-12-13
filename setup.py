@@ -18,6 +18,8 @@ def package_files(directory):
     return paths
 
 example_files = package_files('forecastcards/examples')
+nb_files      = package_files('forecastcards/notebooks')
+
 print("EXAMPLE FILES",example_files)
 
 requirements = [
@@ -44,7 +46,7 @@ setup(
     url='https://github.com/e-lo/forecastcards',
     include_package_data=True,
     install_requires=requirements,
-    package_data={'forecastcards': example_files+['examples/ecdot-rx123-yellowbrickroadhov/project.csv']},
+    package_data={'forecastcards': example_files+nb_files},
     tests_suite = 'tests',
     tests_require=test_requirements,
     extra_compile_args = ['-std=c++11'],
