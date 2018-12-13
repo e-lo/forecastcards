@@ -79,6 +79,16 @@ You can submit forecast cards to the [community data store](https://github.com/e
 2. submitting [an issue](https://github.com/e-lo/forecastcardsdata/issues) with a link to the location of the data along with permission to host it on the repository.
 3. set up the public data store as a mirror.
 
+
+## Installing forecastcards
+
+### troubleshooting
+
+For people using a newer version of MacOS, they may have trouble installing one of the dependencies because its setuplpy settings are not up to date. You can successfully install it by overriding the default compiler using:
+
+`CFLAGS='-stdlib=libc++' pip install cchardet`
+
+
 ## Getting Help
 
 Please [submit an issue!](https://github.com/e-lo/forecastcards/issues)
@@ -86,6 +96,7 @@ Please [submit an issue!](https://github.com/e-lo/forecastcards/issues)
 ## Suggested Workflow
 
 ### Initial setup
+
 
  - decide where the permanent "cold storage" of your data will live: local file server, cloud?
  - catalog and convert historic data
