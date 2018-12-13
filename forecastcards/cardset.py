@@ -10,6 +10,9 @@ class Cardset:
     '''
     Identify where data is, what schema it should conform to, and return a dictionary with locations.
     '''
+
+    github_example_data = {'username':'e-lo','repository':'forecastcards','branch':'master'}
+
     github_master_schema_loc = {
                 'poi'         : "https://raw.github.com/e-lo/forecast-cards/master/spec/en/poi-schema.json",
                 "scenario"    : "https://raw.github.com/e-lo/forecast-cards/master/spec/en/scenario-schema.json",
