@@ -35,8 +35,7 @@
 			"title": "Project Type",
 			"description": "Typology  of the project",
 			"constraints": {
-				"required": true,
-				"enum": ["hov", "road-capacity-expansion", "transit-priority", "road-diet", "bike-facility", "new-roadway", "other"]
+				"enum": ["hov", "road-capacity-expansion", "transit-priority", "road-diet", "bike-facility", "new-roadway", "land-use", "other"]
 			}
 		},
 		{

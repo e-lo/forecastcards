@@ -74,7 +74,8 @@
 					"Minor Arterial",
 					"Major Collector",
 					"Minor Collector",
-					"Local"
+					"Local",
+					"Ramp",
 				]
 			}
 		},
