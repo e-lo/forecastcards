@@ -79,6 +79,7 @@ class Card_schema:
                 schema_dict[k] = Schema(v)
                 if verbose: print("Schema",k,"valid.")
             except Exception:
+                print("****Schema",k,"INVALID")
                 traceback.print_exc()
 
         if len(schema_locs)==len(schema_dict):
