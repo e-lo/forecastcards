@@ -1,0 +1,5 @@
+obs_id,poi_id,forecast_match_id,equip_id,equip_type,obs_date,time_start,time_end,obs_variable,obs_value
+o1,ybr-1-ib,f1,e1,tube,1/1/15,8:00:00,9:00:00,volume,600
+o2,ybr-1-ib,f2,e1,tube,1/1/15,9:00:00,10:00:00,volume,603
+o3,ybr-2-ib,f3,e2,tube,1/1/15,8:00:00,9:00:00,volume,555
+o4,ybr-2-ib,f4,e2,tube,1/1/15,9:00:00,10:00:00,volume,702

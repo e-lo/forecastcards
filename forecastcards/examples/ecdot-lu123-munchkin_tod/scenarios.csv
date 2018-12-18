@@ -1,0 +1,4 @@
+run_id,project_id,scenario_id,scenario_date,scenario_name,forecast_system,forecast_system_type,forecast_creation_date,forecaster_type
+r1,lu123,s1,1/1/15,opening year,the great OZ machine v5.5,travel-model,1/1/10,consultant
+r2,lu123,s2,1/1/15,opening year,the great OZ machine v5.5,travel-model,1/1/12,consultant
+,,,,,,,,
