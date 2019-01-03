@@ -27,7 +27,7 @@ Forecast Cards are compatible with the [Open Knowledge Foundation's]() [Friction
 
 Explore the data schema from your web browser using [colaboratory](https://colab.research.google.com):
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/e_lo/forecast-cards/blob/master/notebooks/Explore_Data_Schemas)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/e-lo/forecastcards/blob/master/forecastcards/notebooks/Explore_Data_Schemas.ipynb)
 
 ### Included Examples
 
@@ -35,9 +35,9 @@ This project currently includes one example, which is the Emerald City DOT's HOV
 
 This example can be analyzed and run with the `notebooks` folder of this directory and can be run using [binder](http://www.mybinder.org) or [colaboratory](https://colab.research.google.com).
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/e_lo/forecast-cards/blob/master/notebooks/Estimate_Quantiles.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/e-lo/forecastcards/blob/master/forecastcards/notebooks/Estimate_Quantiles.ipynb)
 
-Table Validity Status:  [![goodtables.io](https://goodtables.io/badge/github/e-lo/forecast-cards.svg)](https://goodtables.io/github/e-lo/forecast-cards)
+Table Validity Status:  [![goodtables.io](https://goodtables.io/badge/github/e-lo/forecast-cards.svg)](https://goodtables.io/github/e-lo/forecastcards)
 
 ### Suggested card naming and organization
 
@@ -97,7 +97,6 @@ Please [submit an issue!](https://github.com/e-lo/forecastcards/issues)
 
 ### Initial setup
 
-
  - decide where the permanent "cold storage" of your data will live: local file server, cloud?
  - catalog and convert historic data
 
@@ -124,7 +123,7 @@ Please [submit an issue!](https://github.com/e-lo/forecastcards/issues)
 
 ### Run analysis
 
-As summarized in [![the Estimate_Quantiles.ipynb notebook](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/e_lo/forecast-cards/blob/master/notebooks/Estimate_Quantiles.ipynb)
+As summarized in [![the Estimate_Quantiles.ipynb notebook](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/e-lo/forecastcards/blob/master/forecastcards/notebooks/Estimate_Quantiles.ipynb)
 
 1. Select cards to use  
 2. Clean and merge cards  
