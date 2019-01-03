@@ -14,7 +14,8 @@ class Dataset:
 
     def __init__(
                  self,
-                 card_locs        = None,
+                 card_locs_by_type  = None,
+                 file_to_project_id = None,
                  default_process  = True,
                  recode_na_vars   = default_recode_na_vars,
                  no_na_vars       = default_no_na_vars,
@@ -23,11 +24,11 @@ class Dataset:
                  no_scale_cols    = default_no_scale_cols
                  ):
 
-        self.card_locs = card_locs
+        self.card_locs_by_type = card_locs_by_type
         self.all_df    = None
 
-        if card_locs:
-            self.all_df    = self.combine_data(card_locs)
+        if card_locs_by_type and file_to_project_id:
+            self.all_df       = self.combine_data(card_locs_by_type, file_to_project_id)
 
         self.recode_na_vars   = recode_na_vars
         self.no_na_vars       = no_na_vars
@@ -36,21 +37,23 @@ class Dataset:
         self.no_scale_cols    = no_scale_cols
 
         self.df = None
-        if default_process:
+        if default_process and card_locs_by_type and file_to_project_id:
             self.df = self.default_data_clean(self.all_df)
 
-    def combine_data(self,card_locs):
+    def combine_data(self, card_locs_by_type, file_to_project_id):
         '''
         Combine tables by card type and merge tables on keys.
         '''
-
+        print("Combining data")
+        ## TODO need to add project_id to each table.
         #Combine tables by type
+
         project_df = pd.concat(
             [pd.read_csv(
                 f,
                 parse_dates=['year_open_planned','year_horizon','date_open_actual'],
                 infer_datetime_format=True,
-                ) for f in card_locs["project"]
+                ) for f in card_locs_by_type["project"]
             ],
             ignore_index=True,
         )
@@ -60,13 +63,13 @@ class Dataset:
                 f,
                 parse_dates=['forecast_creation_date','scenario_date'],
                 infer_datetime_format=True,
-                ) for f in card_locs["scenario"]
+                ) for f in card_locs_by_type["scenario"]
             ],
             ignore_index=True,
         )
 
         poi_df = pd.concat(
-            [pd.read_csv(f) for f in card_locs["poi"]],
+            [pd.read_csv(f).assign(project_id=file_to_project_id[f]) for f in card_locs_by_type["poi"]],
             ignore_index=True,
         )
 
@@ -74,7 +77,7 @@ class Dataset:
             [pd.read_csv(
                 f,
                 dtype={'obs_value':float},
-                ) for f in card_locs["observations"]
+                ).assign(project_id=file_to_project_id[f]) for f in card_locs_by_type["observations"]
             ],
             ignore_index=True,
         )
@@ -83,7 +86,7 @@ class Dataset:
             [pd.read_csv(
                 f,
                 dtype={'forecast_value':float},
-                ) for f in card_locs["forecast"]
+                ).assign(project_id=file_to_project_id[f]) for f in card_locs_by_type["forecast"]
             ],
             ignore_index=True,
         )
@@ -92,18 +95,22 @@ class Dataset:
 
         # scenario<---project
         scenario_proj_df    = scenario_df.merge(project_df, on='project_id', how='left')
+        #print("scenario_proj_df shape:",scenario_proj_df.shape )
+
 
         # observations <---poi
-        observations_poi_df = observations_df.merge(poi_df, on='poi_id', how='left')
-
+        observations_poi_df = observations_df.merge(poi_df, on=['project_id','poi_id'], how='left')
+        #print("observations_poi_df shape:",observations_poi_df.shape )
+        #print(observations_poi_df[['project_id','poi_id','obs_id','forecast_match_id']])
         # forecasts <---[observations+poi]<----[scenario+project]
         all_df = forecast_df.merge(
             observations_poi_df,
-            on='forecast_match_id',
+            on=['project_id','forecast_match_id'],
             how='left').merge(
                 scenario_proj_df,
-                on='run_id',
+                on=['project_id','run_id'],
                 how='left')
+        #print(all_df[['project_id','run_id','forecast_match_id']])
 
         return all_df
 

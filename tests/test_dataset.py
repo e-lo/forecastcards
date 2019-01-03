@@ -14,21 +14,26 @@ schema_locs = { 'poi':'https://raw.github.com/e-lo/forecastcards/master/spec/en/
                 "observations": "https://raw.github.com/e-lo/forecastcards/master/spec/en/observations-schema.json",
                 "forecast": "https://raw.github.com/e-lo/forecastcards/master/spec/en/forecast-schema.json",
 }
+
 @pytest.mark.master
 @pytest.mark.basic
 def test_local_dataset():
-    card_locs = forecastcards.Cardset(ex_data).card_locs
-    dataset = forecastcards.Dataset(card_locs)
-    print(dataset.df.shape)
-    assert(dataset.df.shape == (8, 18) )
+    cardset            = forecastcards.Cardset(data_loc = ex_data)
+    file_to_project_id = cardset.file_to_project_id
+    card_locs_by_type       = cardset.card_locs_by_type
+    dataset = forecastcards.Dataset(card_locs_by_type = card_locs_by_type, file_to_project_id = file_to_project_id )
+    #print(dataset.df.shape)
+    assert(dataset.df.shape[0] == 16 )
 
 @pytest.mark.master
 @pytest.mark.basic
 def test_github_dataset():
-    card_locs = forecastcards.Cardset(data_loc = gh_data).card_locs
-    dataset = forecastcards.Dataset(card_locs)
-    print(dataset.df.shape)
-    assert(dataset.df.shape == (8, 18) )
+    cardset            = forecastcards.Cardset(data_loc = gh_data)
+    file_to_project_id= cardset.file_to_project_id
+    card_locs_by_type  = cardset.card_locs_by_type
+    dataset = forecastcards.Dataset(card_locs_by_type = card_locs_by_type, file_to_project_id= file_to_project_id )
+    #print(dataset.df.shape)
+    assert(dataset.df.shape[0] == 16 )
 
 if __name__ == '__main__':
 

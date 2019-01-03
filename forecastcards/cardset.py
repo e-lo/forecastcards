@@ -33,13 +33,14 @@ class Cardset:
                  schema_locs = github_master_schema_loc,
                 ):
 
-        self.card_locs = {'poi'         : [],
+        ## TODO need to know project ID for each of these.
+        self.card_locs_by_type = {'poi'         : [],
                           'scenario'    : [],
                           'observations': [],
                           'forecast'    : [],
                           'project'     : []}
 
-
+        self.file_to_project_id = {} # dict of locations to project_ids
         self.schema_locs = schema_locs # dict by card type of urls to JSON files or schema instances
 
         # validate schemas
@@ -149,7 +150,7 @@ class Cardset:
         r = requests.get(repo_loc)
         rj = r.json()
         #if verbose: print(rj)
-        card_locs = {
+        card_locs_by_type = {
                "poi": [],
                "scenario": [],
                "project": [],
@@ -181,6 +182,7 @@ class Cardset:
 
                 assert(proj_csv[0][0] == 'project_id')
                 project_id   = proj_csv[1][0].strip().lower()
+                self.file_to_project_id[file['path']] = project_id
 
                 project_path = os.path.dirname(file['path'])
                 #print(project_path)
@@ -220,21 +222,25 @@ class Cardset:
             if path_list[-1][0:8].lower()=="scenario":
                 project_path = os.path.dirname(file['path'])
                 project_id = projdirs_to_import[project_path]
+                self.file_to_project_id[urljoin(repo_raw,file['path'])] = project_id
                 cards_by_project[project_id]['scenario'].append(urljoin(repo_raw,file['path']))
                 #print("adding scenario:",file['path'])
             if path_list[-1][0:8].lower()=="forecast":
                 project_path = os.path.dirname(os.path.dirname(file['path']))
                 project_id = projdirs_to_import[project_path]
+                self.file_to_project_id[urljoin(repo_raw,file['path'])] = project_id
                 cards_by_project[project_id]['forecast'].append(urljoin(repo_raw,file['path']))
                 #print("adding forecast:",file['path'])
             if path_list[-1][0:12].lower()=="observations":
                 project_path = os.path.dirname(os.path.dirname(file['path']))
                 project_id = projdirs_to_import[project_path]
+                self.file_to_project_id[urljoin(repo_raw,file['path'])] = project_id
                 cards_by_project[project_id]['observations'].append(urljoin(repo_raw,file['path']))
                 #print("adding observation:",file['path'])
             if path_list[-1][0:3].lower()=="poi":
                 project_path = os.path.dirname(file['path'])
                 project_id = projdirs_to_import[project_path]
+                self.file_to_project_id[urljoin(repo_raw,file['path'])] = project_id
                 cards_by_project[project_id]['poi'].append(urljoin(repo_raw,file['path']))
                 #print("adding poi:",file['path'])
 
@@ -247,7 +253,7 @@ class Cardset:
                 self.validated_projects.append(project_id)
                 self.unvalidated_projects.remove(project_id)
                 print("adding",project_id," - valid")
-                for k,v in self.card_locs.items():
+                for k,v in self.card_locs_by_type.items():
                     v += cards[k]
                 else:
                     self.invalid_projects.append(project_id)
@@ -291,8 +297,12 @@ class Cardset:
                 self.validated_projects.append(project_id)
                 self.unvalidated_projects.remove(project_id)
                 print("adding",project_id," - valid")
-                for k,v in self.card_locs.items():
-                    v += p_card_locs[k]
+
+                for type, file_list_of_type in self.card_locs_by_type.items():
+                    file_list_of_type += p_card_locs[type]
+                    for file in p_card_locs[type]:
+                        self.file_to_project_id[file] = project_id
+
             else:
                 self.invalid_projects.append(project_id)
 
