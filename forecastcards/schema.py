@@ -30,6 +30,7 @@ class Card_schema:
         self.valid        = False
         self.schema_locs = {}
         self.schema_dict = None
+        self.schema_fields = {}
 
         if type(self.schema_dir) is dict:
             self.schema_locs = self.schema_locs_from_github()
@@ -40,6 +41,8 @@ class Card_schema:
 
         if validate:
             self.schema_dict = self.validate_schemas(schema_locs = self.schema_locs, schema_parts=self.schema_parts)
+            for k,v in self.schema_dict.items():
+                self.schema_fields[k] = [f['name'] for f in v.descriptor['fields']]
 
 
     def schema_locs_from_github(self, schema_dir=None, schema_parts=None):
