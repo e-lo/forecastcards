@@ -31,6 +31,7 @@ class Cardset:
                  exclude_projects = [],
                  schemas = {},
                  schema_locs = github_master_schema_loc,
+                 validate    = True,
                 ):
 
         ## TODO need to know project ID for each of these.
@@ -61,7 +62,7 @@ class Cardset:
         self.validity_requires    = ['project','poi','observations','scenario','forecast']
 
         # add initial projects
-        self.add_projects(data_loc, select_projects=select_projects, exclude_projects=exclude_projects)
+        self.add_projects(data_loc, select_projects=select_projects, exclude_projects=exclude_projects, validate=validate)
 
     def validate_project(self, p_card_locs, schema_locs={}, validity_requires = []):
 
@@ -106,7 +107,7 @@ class Cardset:
         else:
             return True
 
-    def add_github_projects(self, data_loc, select_projects=[], exclude_projects=[], subdirs  = ['forecastcards/examples']):
+    def add_github_projects(self, data_loc, select_projects=[], exclude_projects=[], subdirs  = ['forecastcards/examples'], validate=True):
         '''
         Identifies valid forecast card projects from a github repository and adds them to the Cardset.card_locs
         Updates the Cardset list of validated projects.
@@ -246,6 +247,10 @@ class Cardset:
 
         #Third loop is through the cards_by_project, which need to be validated all together
         failed_validation_reports = []
+
+        #don't do this if we don't want to validate
+        if not validate: return failed_validation_reports
+
         for project_id, cards in cards_by_project.items():
             p_valid, fail_reports = self.validate_project(cards,self.schema_locs)
 
@@ -261,7 +266,7 @@ class Cardset:
             failed_validation_reports.append(fail_reports)
         return failed_validation_reports
 
-    def add_local_projects(self, data_loc, select_projects=[], exclude_projects=[]):
+    def add_local_projects(self, data_loc, select_projects=[], exclude_projects=[], validate=True):
 
         #find projects by searching for the project csv file
         project_loc = os.path.join(data_loc,'**/project*.csv')
@@ -291,6 +296,10 @@ class Cardset:
                            'forecast'    : glob.glob(os.path.join(project_path,'**/forecast*.csv'),recursive=True),
                            'project'     : [filepath]}
 
+            #don't do this if we don't want to validate
+            if not validate:
+                continue
+
             p_valid, fail_reports = self.validate_project(p_card_locs,self.schema_locs)
 
             if p_valid:
@@ -311,14 +320,17 @@ class Cardset:
         return failed_validation_reports
 
 
-    def add_projects(self, data_loc, select_projects=[], exclude_projects=[],subdirs  = ['forecastcards/examples']):
+    def add_projects(self, data_loc, select_projects=[], exclude_projects=[],subdirs  = ['forecastcards/examples'], validate=True):
         '''
 
         '''
         self.data_locs.append(data_loc)
 
+        if not validate:
+            print("!!!NOT VALIDATING PROJECTS")
+            
         if type(data_loc) is dict:
-            reports = self.add_github_projects(data_loc,select_projects=select_projects, exclude_projects=exclude_projects, subdirs  = subdirs)
+            reports = self.add_github_projects(data_loc,select_projects=select_projects, exclude_projects=exclude_projects, subdirs  = subdirs, validate=validate)
 
         else:
-            reports = self.add_local_projects(data_loc,select_projects=select_projects, exclude_projects=exclude_projects)
+            reports = self.add_local_projects(data_loc,select_projects=select_projects, exclude_projects=exclude_projects, validate=validate)
