@@ -1,0 +1,13 @@
+language: python
+
+python: 3.6
+
+install:
+  - pip install -r requirements.txt
+  - pip install .
+
+script:
+  - if [ "$TRAVIS_BRANCH" == "master" ];
+    then py.test -v -m master;
+    else 30 py.test -v -m basic;
+    fi
