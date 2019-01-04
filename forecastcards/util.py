@@ -24,7 +24,7 @@ def github_url_to_dict(gh_url):
              example: https://github.com/e-lo/forecastcards/tree/master/forecastcards/examples
     :returns: dictionary of username repository, branch, and subdirectory
     '''
-    g = ghurl[gh_url.find("github"):].strip().split("/")
+    g = gh_url[gh_url.find("github"):].strip().split("/")
     gh_dict = {}
     gh_dict['username'] = g[1]
     gh_dict['repository'] = g[2]
