@@ -119,7 +119,7 @@ class Card_schema:
             if 'constraints' in f.keys():
               if 'enum' in f['constraints'].keys():
                 node_label+="<br/>"
-                node_label+="<FONT point-size = '8'>One of:</FONT><FONT point-size = '8' COLOR='dodgerblue3' FACE='courier'>"+", ".join(f['constraints']["enum"])+"</FONT>"
+                node_label+="<FONT point-size = '12'>One of:<br/> -</FONT><FONT point-size = '12' COLOR='dodgerblue3' FACE='courier'>"+"<br/> - ".join(f['constraints']["enum"])+"</FONT>"
             node_label+="</td></tr>"
           node_label+="</table>>"
           erd_graph.node(k,label = node_label)
