@@ -17,3 +17,19 @@ def raw_github_url(username, repository, branch='master', subdir=''):
 def api_github_url(username, repository, branch='master'):
     gh = "https://api.github.com/repos/"+str(username)+"/"+str(repository)+"/git/trees/"+str(branch)+"?recursive=1"
     return gh
+
+def github_url_to_dict(gh_url):
+    '''
+    :gh_url: is the url to a repository or a subfolder in a github repository
+             example: https://github.com/e-lo/forecastcards/tree/master/forecastcards/examples
+    :returns: dictionary of username repository, branch, and subdirectory
+    '''
+    g = ghurl[gh_url.find("github"):].strip().split("/")
+    gh_dict = {}
+    gh_dict['username'] = g[1]
+    gh_dict['repository'] = g[2]
+    gh_dict['branch'] = g[4]
+    gh_dict['subdir'] = ''
+    if len(g)>4:
+        gh_dict['subdir']='/'.join(g[5:])
+    return gh_dict
