@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/e-lo/forecastcards.svg?branch=master)](https://travis-ci.org/e-lo/forecastcards)
+
 # What are forecast cards?
 
 Forecast cards are a simple data specification for storing key information about your travel forecast in order to:  
@@ -59,8 +61,13 @@ In order to leverage a common set of tools, we suggest that forecast card data i
 
 1. Make sure you have the required data by examining the schema.
 
-2. Format Data as Forecast Cards
-*[helper scripts on the way](https://github.com/e-lo/forecastcards/issues/1)*
+2. Create or Format Data as Forecast Cards
+
+ - Enter data into browser and download: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/e-lo/forecastcards/blob/master/forecastcards/notebooks/Create_Forecast_Cards.ipynb)
+
+ - Use [csv templates](https://github.com/e-lo/forecastcards/tree/master/forecastcards/template/) and enter data using a text browser or a spreadsheet application
+
+ - Convert existing data using the [helper scripts on the way](https://github.com/e-lo/forecastcards/issues/1)*
 
 3. Use template notebooks locally or on a hosted remote server (i.e. colaboratory) to clean data and estimate quantile regressions.  
 
