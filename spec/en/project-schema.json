@@ -17,7 +17,7 @@
 			"type": "string",
 			"format": "default",
 			"title": "Responsible Agency",
-			"description": "Agency responsible for project",
+			"description": "Agency responsible for project. Will be assumed as unknown if left blank.",
 			"constraints": {
 				"required": true
 			}

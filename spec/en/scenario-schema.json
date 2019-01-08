@@ -82,7 +82,7 @@
 			"type": "string",
 			"format": "default",
 			"title": "Forecaster type",
-			"description": "Who created the forecast?",
+			"description": "Who created the forecast? Will be assumed as unknown if left blank.",
 			"constraints": {
 				"enum": ["consultant", "state DOT", "MPO", "local", "other", "unknown"]
 			}
