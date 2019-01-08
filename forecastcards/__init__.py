@@ -11,6 +11,7 @@ from forecastcards.dataset import Dataset
 
 from forecastcards.schema import Card_schema
 
+from forecastcards.project import Project
 
 __all__ = [
     'get_csv_from_url',
@@ -20,4 +21,5 @@ __all__ = [
     'Card_schema',
     'Cardset',
     'Dataset',
+    'Project',
 ]
