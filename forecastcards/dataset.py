@@ -2,6 +2,7 @@ import requests
 from urllib.parse import urljoin
 import pandas as pd
 from goodtables import validate
+import forecastcards
 
 class Dataset:
     default_recode_na_vars   = ['forecast_system_type', 'area_type', 'forecaster_type', 'state', 'agency', 'functional_class','facility_type','project_type']
@@ -135,6 +136,16 @@ class Dataset:
 
         return usable_df
 
+    def create_daily_volumes(self,row):
+
+        ##TODO this is a simplification. Should be doing more robust checks.
+        if (not row['start_time']) or (not row['end_time']):
+            return row['forecast_value']
+
+        adt = forecastcards.convert_vol_to_daily(row['forecast_value'], row['start_time'], row['end_time'])
+
+        return adt
+
     def create_default_categorical_vars(self, df):
         ## categorical decades variable
         df['creation_decade'] = (df['forecast_creation_date'].apply(lambda x: x.year//10*10)).astype('category')
@@ -142,12 +153,13 @@ class Dataset:
 
         ## large projects dummy variable
         breakpoint = 30000
-        bins = [df['forecast_value'].min(), breakpoint, breakpoint+df['forecast_value'].max()]
+        df['daily_forecast_value']=df.apply(self.create_daily_volumes,axis=1)
+        print(df[['start_time','end_time','forecast_value','daily_forecast_value']])
+        bins = [df['daily_forecast_value'].min(), breakpoint, breakpoint+df['daily_forecast_value'].max()]
         labels = ["small_project","large_project"]
         df['project_size'] = pd.cut(df['forecast_value'], bins=bins, labels=labels)
 
         return df
-
 
     def categorical_to_dummy(self, df, categorical_cols=[],required_vars = []):
 

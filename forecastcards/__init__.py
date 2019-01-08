@@ -3,6 +3,7 @@ from forecastcards.util import (
     raw_github_url,
     api_github_url,
     github_url_to_dict,
+    convert_vol_to_daily,
 )
 
 from forecastcards.cardset import Cardset
@@ -18,6 +19,7 @@ __all__ = [
     'raw_github_url',
     'api_github_url',
     'github_url_to_dict',
+    'convert_vol_to_daily',
     'Card_schema',
     'Cardset',
     'Dataset',
