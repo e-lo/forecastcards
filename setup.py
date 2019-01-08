@@ -48,6 +48,7 @@ setup(
     install_requires=requirements,
     package_data={'forecastcards': example_files+nb_files},
     tests_suite = 'tests',
+    scripts=['forecastcards/scripts/validate_cardset.py','forecastcards/scripts/validate_project.py'],
     tests_require=test_requirements,
     extra_compile_args = ['-std=c++11'],
 )

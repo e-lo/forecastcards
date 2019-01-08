@@ -6,6 +6,7 @@ import forecastcards
 from goodtables import validate
 from urllib.parse import urljoin
 
+
 class Cardset:
     '''
     Identify where data is, what schema it should conform to, and return a dictionary with locations.
@@ -34,7 +35,6 @@ class Cardset:
                  validate    = True,
                 ):
 
-        ## TODO need to know project ID for each of these.
         self.card_locs_by_type = {'poi'         : [],
                           'scenario'    : [],
                           'observations': [],
@@ -57,6 +57,7 @@ class Cardset:
         self.validated_projects   = []
         self.unvalidated_projects = []
         self.invalid_projects     = []
+        self.failed_reports       = []
 
         # valid project requires following valid components
         self.validity_requires    = ['project','poi','observations','scenario','forecast']
@@ -328,9 +329,9 @@ class Cardset:
 
         if not validate:
             print("!!!NOT VALIDATING PROJECTS")
-            
+
         if type(data_loc) is dict:
-            reports = self.add_github_projects(data_loc,select_projects=select_projects, exclude_projects=exclude_projects, subdirs  = subdirs, validate=validate)
+            self.failed_reports += self.add_github_projects(data_loc,select_projects=select_projects, exclude_projects=exclude_projects, subdirs  = subdirs, validate=validate)
 
         else:
-            reports = self.add_local_projects(data_loc,select_projects=select_projects, exclude_projects=exclude_projects, validate=validate)
+            self.failed_reports += self.add_local_projects(data_loc,select_projects=select_projects, exclude_projects=exclude_projects, validate=validate)
