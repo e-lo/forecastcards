@@ -214,6 +214,18 @@ class Project:
                         valid = False
                     print ("Validation Error:", card)
                     fail_reports.append(report)
+                                # check that start time is before end time
+                if card_type in ['forecast','observation']:
+                    df=pd.read_csv(card,
+                                   dtype={'obs_value':float},
+                                   usecols=["start_time", "end_time"],
+                                   parse_dates=["start_time", "end_time"])
+                    df['invalid']=df['start_time']>=df['end_time']
+                    if df['invalid'].sum()>0:
+                        valid = False
+                        report = card+ " - Start time isn't before end time."+str(df[df['invalid'] == True])
+                        fail_reports.append(report)
+
 
         self.valid = valid
         self.fail_reports = fail_reports
