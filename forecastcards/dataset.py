@@ -154,7 +154,7 @@ class Dataset:
         ## large projects dummy variable
         breakpoint = 30000
         df['daily_forecast_value']=df.apply(self.create_daily_volumes,axis=1)
-        print(df[['start_time','end_time','forecast_value','daily_forecast_value']])
+        #print(df[['start_time','end_time','forecast_value','daily_forecast_value']])
         bins = [df['daily_forecast_value'].min(), breakpoint, breakpoint+df['daily_forecast_value'].max()]
         labels = ["small_project","large_project"]
         df['project_size'] = pd.cut(df['forecast_value'], bins=bins, labels=labels)

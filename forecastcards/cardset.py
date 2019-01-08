@@ -276,8 +276,8 @@ class Cardset:
                 print("adding",project_id," - valid")
                 for k,v in self.card_locs_by_type.items():
                     v += cards[k]
-                else:
-                    self.invalid_projects.append(project_id)
+            else:
+                self.invalid_projects.append(project_id)
 
             failed_validation_reports.append(fail_reports)
         return failed_validation_reports
