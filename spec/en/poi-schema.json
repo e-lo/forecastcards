@@ -34,14 +34,14 @@
 			"type": "string",
 			"format": "default",
 			"title": "Start of POI",
-			"description": "Starting point for the point of interest."
+			"description": "Starting point for the point of interest. Could be a lat/long, mile-marker, intersection, landmark, or a node number."
 		},
 		{
 			"name": "end",
 			"type": "string",
 			"format": "default",
 			"title": "End of POI",
-			"description": "Ending point for the point of interest."
+			"description": "Ending point for the point of interest. Could be a lat/long, mile-marker, intersection, landmark, or a node number."
 		},
 		{
 			"name": "area_type",
