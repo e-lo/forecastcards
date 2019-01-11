@@ -28,6 +28,12 @@ data that conforms to the forecast cards data schema and consists of four main c
 
 ### Basic Usage
 
+**Validate Single Project**
+
+```shell
+validate_project.py  "forecastcards/examples/ecdot-lu123-munchkin_tod"
+```
+
 **Project**
 
 ```python
@@ -73,7 +79,8 @@ cardset = forecastcards.Cardset(data_loc = gh_data, exclude_projects=['lu123'])
 cardset.add_projects(data_loc=ex_data, select_projects=['lu123'])
 ```
 
-**Dataset**
+**Dataset**  
+Create a dataset suitable for estimating quantile regressions. 
 
 ```python
 
@@ -95,12 +102,7 @@ dataset = forecastcards.Dataset(card_locs_by_type  = cardset.card_locs_by_type,
 # access to the dataframe
 dataset.df
 ```
-**Validate Single Project**
 
-```shell
-python forecastcards/scripts/validate_project.py  "/Users/eli
-zabeth/Documents/urbanlabs/NCHRP 08-110/working/forecastcards/forecastcards/examples/ecdot-lu123-munchkin_tod"
-```
 
 ### The Schema
 
